@@ -42,7 +42,7 @@ defmodule IElixir.Kernel.ConnectionFile do
           {atom(), list(), integer()}
   def channel_connection_config(connection_data, channel_name) do
     {
-      :erlang.binary_to_atom(connection_data["transport"]),
+      :erlang.binary_to_atom(connection_data["transport"], :utf8),
       :erlang.binary_to_list(connection_data["ip"]),
       connection_data["#{channel_name}_port"]
     }
